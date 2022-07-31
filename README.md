@@ -13,39 +13,34 @@ The application effectively allows the contact of the person interested in adopt
 
 ## React Router Routes (React App)
 
-      <Route exact path="/add"                               ---> ADD ANIMAL (CAT OR DOG) TO THE DATABASE
+| Path                      | Component                      | Permissions                 | Behavior                                                      |
+| ------------------------- | ------------------------------ | --------------------------- | ------------------------------------------------------------- |
+| `/`                       | SplashPage                     | public `<Route>`            | Home page                                                     |
+| `/signup`                 | SignupPage                     | anon only `<AnonRoute>`     | Signup form, link to login, only admin                        |
+| `/login`                  | LoginPage                      | anon only `<AnonRoute>`     | Login form, link to signup, navigate to homepage after login  |
+| `/logout`                 | n/a                            | admin only `<PrivateRoute>` | Navigate to homepage after logout, expire session             |
+| `/add`                    | NavBar                         | admin only `<PrivateRoute>` | Add cat or dog to db                                          |
+| `/addmap`                 | NavBar                         | admin only `<PrivateRoute>` | Add maps to the app                                           |
+| `/addstories`             | NavBar                         | admin only `<PrivateRoute>` | Add stories to the app                                        |
+| `/addonation`             | NavBar                         | admin only `<PrivateRoute>` | Add donation to the app                                       |
+| `/addcontact`             | NavBar                         | admin only `<PrivateRoute>` | Add contact to the app                                        |
+| `/settings`               | Form                           | admin only `<PrivateRoute>` | Setting logo app                                              |
+| `/cat/edit/:catId`        | Form                           | admin only `<PrivateRoute>` | Edit cat details                                              |
+| `/dog/edit/:dogId`        | Form                           | admin only `<PrivateRoute>` | Edit dog details                                              |
+| `/contacts/edit/:dogId`   | Form                           | admin only `<PrivateRoute>` | Edit contact details                                          |
+| `/stories`                | List for stories               | user `<PublicRoute>`        | Shows all stories                                             |
+| `/dog/:dogId`             | List for dog                   | user `<PublicRoute>`        | Shows dogs details                                            |
+| `/contacts/:contactId`    | List for contact               | user `<PublicRoute>`        | Shows contact details                                         |
+| `/cat/:catId`             | List for cat                   | user `<PublicRoute>`        | Shows cat details                                             |
+| `/cats`                   | List for cats                  | user `<PublicRoute>`        | Shows cat list                                                |
+| `/dogs`                   | List for dogs                  | user `<PublicRoute>`        | Shows dog list                                                |
+| `/contacts`               | List for contacts              | user `<PublicRoute>`        | Shows contacts list                                           |
+| `/map`                    | List for map                   | user `<PublicRoute>`        | Shows maps details                                            |
+| `/donate`                 | Form                           | user `<PublicRoute>`        | Add donation                                                  |
+| `/dogadopted`             | Form                           | user `<PublicRoute>`        | Shows adopted dog list                                        |
+| `/catadopted`             | Form                           | user `<PublicRoute>`        | Shows adopted cat list                                        |
 
-      <Route exact path="/"                                  --->HOME PAGE
 
-      <Route exact path="/addmap"                            ---> ADD MAPS
-      <Route exact path="/map"                               ---> LIST MAPS
-
-      <Route exact path="/stories"                           ---> LIST ALL STORIES
-      <Route exact path="/addstories"                        ---> ADD NEW STORY
-
-      <Route exact path="/addonation"                        ---> ADD DONATION TO THE SHELTER
-      <Route exact path="/donate"                            ---> DONATION PAGE
-
-      <Route exact path="/settings"                          ---> SETTINGS
-
-      <Route exact path="/cats"                              ---> LIST ALL CATS IN DB
-      <Route exact path="/cat/:catId"                        ---> RETRIEVES A SPECIFIC CAT BY ID
-      <Route exact path="/cats/edit/:catId"                  ---> EDIT CAT INFO
-
-      <Route exact path="/dogs"                              ---> LIST ALL DOGS
-      <Route exact path="/dog/:dogId"                        ---> RETRIEVES A SPECIFIC DOG BY ID
-      <Route path="/dogs/edit/:dogId"                        ---> EDIT DOG INFO
-
-      <Route exact path="/contacts"                          ---> LIST ALL CONTACT
-      <Route exact path="/addcontact"                        ---> ADD NEW CONTACT
-      <Route exact path="/contacts/:contactId"               ---> RETRIEVES A SPECIFIC CONTACT BY ID
-      <Route path="/contacts/edit/:contactId"                ---> EDIT CONTACT INFO
-
-      <Routeexact path="/dogadopted"                         ---> SAVE ANIMALS IN A DATABASE AS ADOPTED ANIMALS
-      <Routeexact path="/catadopted"                         ---> SAVE ANIMALS IN A DATABASE AS ADOPTED ANIMALS
-
-      <Route exact path="/signup"	                         ---> CREATE NEW ADMIN
-      <Route exact path="/login"	                         ---> LOGIN ADMIN
 
 ## Components
 
@@ -74,35 +69,67 @@ The application effectively allows the contact of the person interested in adopt
 ##### Server / Backend
 
 GET /api
+
 POST /api/auth/signup
+
 POST /api/auth/login
+
 GET /api/auth/verify
-GET /api/auth/verify
+
 POST /adddog
+
 POST /addcat
+
 POST /addstory
+
+GET /users
+
 POST /adddonation
+
 POST /addmap
+
 POST /settings
+
+PUT /carousel
+
 POST /addcontact
-DELETE /cats/:catId
+
+DELETE /cats/:
+
 DELETE /dogs/:dogId
+
 DELETE /stories/:storieId
+
 DELETE /contacts/:contactId
+
 GET /dogs/:dogId
+
 GET /cats/:catId
+
 GET /contacts/:contactId
+
 PUT /dogs/:dogId
+
 PUT /cats/:catId
+
 PUT /contacts/:contactId
+
 POST /upload
-POST /upload
+
 GET /contacts
+
 GET /donations
+
+GET /logo
+
 GET /dogs
+
 GET /cats
+
 GET /map
+
 GET /stories
+
 
 <br>
 
@@ -226,9 +253,11 @@ GET /stories
 The url to your repository and to your deployed project
 
 [Client repository Link - Front - AN](https://github.com/unimexes2/project3-front)
+
 [Client repository Link - Front - SL](https://github.com/sebalaca?tab=repositories)
 
 [Server repository Link - Back - AN](https://github.com/unimexes2/project3-back)
+
 [Server repository Link - Back - SL](https://github.com/sebalaca/project3-back)
 
 [Deployed App Link](https://protectorapalafols.herokuapp.com)
